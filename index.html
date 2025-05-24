@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Express</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container" id="auth-container">
+    <div class="auth-box">
+      <div class="logo-title">
+        <div class="logo-container">
+          <i class="fas fa-boxes-stacked logo-icon"></i>
+        </div>
+        <h1>Material Express</h1>
+        <p class="subtitle">Tu plataforma de cotización de materiales</p>
+      </div>
+      <div class="auth-options">
+        <button id="login-btn" class="auth-btn">Iniciar Sesión</button>
+        <button id="register-btn" class="auth-btn secondary">Crear Cuenta</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="login-container" style="display: none;">
+    <div class="auth-box">
+      <div class="auth-header">
+        <i class="fas fa-arrow-left back-icon" id="back-to-auth"></i>
+        <h1>Iniciar Sesión</h1>
+      </div>
+      <form id="login-form">
+        <div class="input-group">
+          <label for="login-email">Correo electrónico</label>
+          <div class="input-with-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="login-email" required placeholder="Ingresa tu correo electrónico">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="login-password">Contraseña</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="login-password" required placeholder="Ingresa tu contraseña">
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">Ingresar <i class="fas fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container" id="register-container" style="display: none;">
+    <div class="auth-box">
+      <div class="auth-header">
+        <i class="fas fa-arrow-left back-icon" id="back-to-auth-from-register"></i>
+        <h1>Crear Cuenta</h1>
+      </div>
+      <form id="register-form">
+        <div class="input-group">
+          <label for="register-name">Nombre completo</label>
+          <div class="input-with-icon">
+            <i class="fas fa-user"></i>
+            <input type="text" id="register-name" required placeholder="Ingresa tu nombre completo">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="register-username">Nombre de usuario</label>
+          <div class="input-with-icon">
+            <i class="fas fa-at"></i>
+            <input type="text" id="register-username" required placeholder="Crea un nombre de usuario">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="register-email">Correo electrónico</label>
+          <div class="input-with-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="register-email" required placeholder="Ingresa tu correo electrónico">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="register-phone">Número de teléfono</label>
+          <div class="input-with-icon">
+            <i class="fas fa-phone"></i>
+            <input type="tel" id="register-phone" required placeholder="Ingresa tu número de teléfono">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="register-password">Contraseña</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="register-password" required placeholder="Crea una contraseña">
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="register-confirm">Confirmar contraseña</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="register-confirm" required placeholder="Confirma tu contraseña">
+          </div>
+        </div>
+        <button type="submit" class="submit-btn">Registrarse <i class="fas fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container" id="main-container" style="display: none;">
+    <header class="main-header">
+      <div class="header-content">
+        <h1>Material Express</h1>
+        
+        <!-- Perfil del usuario -->
+        <div class="user-profile">
+          <div class="user-avatar">
+            <i class="fas fa-hard-hat"></i>
+          </div>
+          <span class="user-name" id="user-display-name">Usuario</span>
+        </div>
+        
+        <div class="user-controls">
+          <button id="multi-quote-btn" class="multi-quote-btn" title="Cotización múltiple">
+            <i class="fas fa-file-invoice"></i> Cotización múltiple
+          </button>
+          <button id="logout-btn" class="logout-btn" title="Cerrar sesión">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Sección principal reorganizada -->
+      <div class="main-section">
+        <h2 class="welcome-message">¿Qué estás pensando comprar hoy?</h2>
+        <div class="search-container">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <select id="category-filter">
+              <option value="">Todas las categorías</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="categories-list" id="categories-list">
+      <!-- Las categorías se llenarán con JavaScript -->
+    </div>
+
+    <div class="materials-list" id="materials-list" style="display: none;">
+      <!-- Los materiales se llenarán con JavaScript -->
+    </div>
+  </div>
+
+  <div class="container" id="results-container" style="display: none;">
+    <div class="results-header">
+      <button id="back-to-materials" class="back-btn-modern">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h1 id="material-title"></h1>
+    </div>
+    
+    <div class="providers-list" id="providers-list">
+      <!-- Los proveedores se llenarán con JavaScript -->
+    </div>
+  </div>
+
+  <div class="notification" id="notification"></div>
+
+  <!-- Modal para cotización -->
+  <div id="quote-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Cotización de material</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div id="quote-content"></div>
+      <div class="modal-actions">
+        <button class="download-btn" id="download-pdf">
+          <i class="fas fa-file-pdf"></i> Descargar PDF
+        </button>
+        <button class="download-btn excel" id="download-excel">
+          <i class="fas fa-file-excel"></i> Descargar Excel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para cotización múltiple -->
+  <div id="multi-quote-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Cotización múltiple de materiales</h2>
+        <span class="close-modal">&times;</span>
+      </div>
+      <div class="multi-quote-content">
+        <div class="multi-quote-selection">
+          <h3>Selecciona los materiales a cotizar</h3>
+          <div class="category-selector">
+            <label for="multi-category-filter">Categoría:</label>
+            <select id="multi-category-filter">
+              <option value="">Todas las categorías</option>
+            </select>
+          </div>
+          <div id="multi-materials-list" class="multi-materials-list">
+            <!-- Los materiales se llenarán con JavaScript -->
+          </div>
+        </div>
+        <div class="multi-quote-selected">
+          <h3>Materiales seleccionados</h3>
+          <div id="selected-materials" class="selected-materials">
+            <!-- Los materiales seleccionados se llenarán con JavaScript -->
+          </div>
+          <div class="format-selection">
+            <h4>Formato de descarga:</h4>
+            <div class="format-options">
+              <label class="format-option">
+                <input type="radio" name="format" value="pdf" checked>
+                <span class="format-icon"><i class="fas fa-file-pdf"></i> PDF</span>
+              </label>
+              <label class="format-option">
+                <input type="radio" name="format" value="excel">
+                <span class="format-icon"><i class="fas fa-file-excel"></i> Excel</span>
+              </label>
+              <label class="format-option">
+                <input type="radio" name="format" value="both">
+                <span class="format-icon"><i class="fas fa-file-alt"></i> Ambos</span>
+              </label>
+            </div>
+          </div>
+          <button id="generate-multi-quote" class="submit-btn" disabled>
+            Generar cotización <i class="fas fa-file-invoice"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
